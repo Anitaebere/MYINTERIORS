@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Interiors</title>
+    <style>
+        body{
+            /* background-color: #222831; */
+            background-color: white;
+            -webkit-background-clip: text; 
+            background-clip: text;
+            color: white;
+            line-height: inherit;
+            margin: 0%;
+            font-family: "kanit","sans-sherif";
+            position: relative;  
+            width: 100%;
+            padding: 0%;
+        }
+        .mainParent{
+            background-image: url('/images/deco2.jpg'); 
+            background-repeat: no-repeat; 
+            background-position: center; 
+            background-attachment: fixed; 
+            background-size: cover; 
+            margin-right: -25px;
+            /* filter: brightness(1.1) contrast(1.1) saturate(1.1); */
+        }
+        .parent{
+            display: flex;
+            gap: 50px;
+            align-items: baseline;
+        }
+        .nav1{
+            display: flex;
+            background-color: #222831;
+            background-color: rgba(0,0,0,0.5);
+            align-items: baseline;
+            height: 100px;
+            width: 100%;
+            position: relative;
+            border-bottom: 2px solid white;
+            overflow: hidden;
+        }
+        .nav1 h1{
+        animation:  slideRight 2s ease forwards;
+        animation-delay: 0.5s;
+        }
+        @keyframes slideRight {
+        0%{
+            transform: translateX(150px);
+        }
+        100%{
+            transform: translateX(0);
+        }
+
+        }
+        .sidenav{
+        position: fixed;
+        top: 0;
+        right: 0;
+        height: 100vh;
+        width: 350px;
+        z-index: 999;
+        backdrop-filter: blur(10px);
+        background-color: rgb(255, 255, 255,0.2);
+        box-shadow: -10px 0 10px rgba(0, 0, 0,0.1);
+        display: none;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+        color: black;
+        padding: 20px;
+        cursor: pointer;
+       }
+       .sidenav h2:hover{
+        color: crimson;
+       }
+        .menu{
+            display: flex;
+            gap: 35px;
+            cursor: pointer;
+            justify-content: center;
+            position: fixed;
+            z-index: 100;
+            align-items: center;
+        }
+        .menu h3{
+            transition: .5s;
+            animation:  slideTop .6s ease forwards;
+            animation-delay: calc(.2s * var(--i));
+        }
+            @keyframes slideTop {
+            0%{
+                transform: translateY(100px);
+            }
+            100%{
+                transform: translateY(0);
+            }
+        }
+        .menu h3:hover{
+            border: 3px solid crimson;
+            padding: 5px 10px;
+            transition: 0.5s;
+        }
+        #home{
+            margin-left: 600px;
+        }
+        .nav1 img{
+            height: 50px;
+            width: 60px;
+            background-attachment: fixed;
+            background-color: #222831;
+            margin-top: 10px;
+            object-fit: cover;
+            mix-blend-mode: color; 
+        }
+        .main{
+            padding: 80px;
+            border-radius: 20px;
+            width: 50%;
+            background-color: rgba(0,0,0,0.5);
+            padding-top: 130px;
+        }
+        .interior{
+         animation:  slideTop 2s ease forwards;
+         animation-delay: 1s;
+        }
+        .services{
+         animation:  slideTop 2s ease forwards;
+         animation-delay: 1.5s;
+        }
+        @keyframes slideTop{
+        0%{
+            transform: translateY(150px);
+        }
+        100%{
+            transform: translatey(0);
+        }
+        }
+        #h1main{
+             font-size: 50px;  
+             color: transparent; 
+            -webkit-text-stroke-width: 1px; 
+            -webkit-text-stroke-color: crimson;
+             position: relative; 
+        }
+        .text{
+            max-width: 550px;
+            font-weight: bold;
+            color: white; 
+            font-size: 25px;
+            text-align: justify;
+        }
+        .about{
+            display: none;
+            margin-top: -100px;
+            padding-top: 100px;
+            animation:  slideTop 2s ease forwards;
+            animation-delay: 1s;
+        }
+        .about h1{
+            color: crimson;
+        }
+        button{
+            background: transparent;
+            border: 3px solid crimson;
+            margin-top: 30px;
+            padding: 15px 20px;
+            border-radius: 5px;
+            color: white;
+            font-weight: bold;
+            gap: 20px;
+        }
+        button:hover{
+            background-color: crimson;
+            cursor: pointer;
+            border: 2px solid crimson;
+            transition: 1s;
+            
+        }
+        .fa-long-arrow-down{
+            color: white;
+        }
+        .imgProject{
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            height: 500px; 
+            width: 500px;
+
+        }
+        .fa-facebook, .fa-instagram, .fa-twitter, .fa-youtube{
+            text-align: end;
+            font-size: 20px;
+        }
+        .swipe div{
+            height: 20px;
+            width: 20px;
+            border-radius: 50%;
+            background-color: white;
+           text-align: center;
+        }
+        .swipe div:hover{
+            cursor: pointer;
+            background-color: yellow;
+        }
+        .swipe{
+            display: flex;
+            gap: 15px;
+            text-align: center;
+        }
+        #showmenu{
+            display: none;
+        }
+        .fa-times{
+            color: crimson;
+        }
+        .services1 p{
+            text-align: justify;
+            max-width: 450px;
+        }
+        @media screen and (max-width: 900px) {
+            .hidenav{
+                display: none;
+            }
+            #showmenu{
+                display: block;
+            }
+            .nav1{
+                display: flex;
+                justify-content: space-around;
+            }
+            .menu{
+                gap: -15px;
+                position: relative;
+            }
+            .text,.about{
+                max-width: 400px;
+            }
+            .about{
+                padding: 0%;
+            }
+            .services1 {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                margin-left: 10%;
+            }
+            .project{
+                font-size: 13px;
+                margin-left: 5%;
+            }
+            .project img{
+                width: 350px;
+            }
+            .line1{
+                width: 50px;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="../C.CSS">
+</head>
+<body>
+
+    <div class="mainParent">
+    <div class="parent">
+        <div class="nav1">
+            <h1 style="margin-left: 50px; font-style: italic; font-size: 40px;">Interior <span style="color: crimson;">Designer</span></h1>
+           
+            <!-- <img src="/sunflower.jpeg"> -->
+            <div class="sidenav">
+                <h3><i onclick="nomenu()" class="fa fa-times" aria-hidden="true"></i></h3>
+                <h2  onclick="home()">HOME</h2>
+                <h2>*</h2>
+                <h2  onclick="showAbout()">ABOUT</h2>
+                <h2>*</h2>
+                <h2  onclick="showServices()">SERVICES</h2>
+                <h2>*</h2>
+                <h2>BLOG</h2>
+                <h2>*</h2>
+                <h2>BOOK US</h2>
+
+                <div id="myMenu">
+                    <i id="face"  class="fab fa-facebook"></i>
+                    <i id="twit"  class="fab fa-twitter"></i>
+                    <i id="insta" class="fab fa-instagram"></i>
+                    <i id="tube"  class="fab fa-youtube"></i>
+                </div>
+            </div> 
+
+            <div class="menu">
+                <h3 class="hidenav" style="--i:1" onclick="home()" id="home">HOME</h3>
+                <h2 class="hidenav" style="--i:2">*</h2>
+                <h3 class="hidenav" style="--i:3" onclick="showAbout()">ABOUT</h3>
+                <h2 class="hidenav" style="--i:4">*</h2>
+                <h3 class="hidenav" style="--i:5" onclick="showServices()">SERVICES</h3>
+                <h2 class="hidenav" style="--i:6">*</h2>
+                <h3 class="hidenav" style="--i:7">BLOG</h3>
+                <h2 class="hidenav" style="--i:8">*</h2>
+                <h3 class="hidenav" style="--i:9">BOOK US</h3>
+                <h3><i id="showmenu" onclick="sidemenu()" class="fa-bars fa-solid"></i></h3>    
+            </div> 
+        </div>
+
+    </div>
+
+
+    <div class="main">
+       <div class="interior">
+            <h1 id="h1main"><span style="color: white;">MY INTERIOR</span> <SPAN style="color: crimson;">DESIGN</SPAN></h1>
+
+            <div class="text">
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                Dolorem suscipit corrupti alias tenetur velit doloribus consequuntur, 
+                voluptatibus repellat, voluptate molestias exercitationem iste aliquam animi placeat iusto, dolores similique ad accusamus.
+            </div>
+
+            <div class="btn">
+                <button>OUR SERVICE</button>
+                <button>GET A QUOTE</button>
+            </div>
+       </div>
+       <div class="about">
+            <h1 id="h1main"><i> <span style="color: white;">Anita's</span> <span style="color: crimson;">Interior</span></i></h1>
+            <div class="text">
+                An interior design is an art of enhancing in inside part of a building to achieve a healthier 
+                and more aesthestically pleasing environment.Anita's interior decor makes indoor spaces functional,
+                safe, and beautiful by determining space requirements and selecting essential decorative items such 
+                as:colors,lighting,and other materilas. <h2 style="color: crimson;">***************</h2>
+            </div>
+       </div>
+    </div>
+    </div>
+
+
+    <div class="services">
+        <h1 style="text-align: center; color: crimson;">Our Services</h1>
+        <div class="lines" style="display: flex; gap: 5px; justify-content: center; margin: -30px; align-items: baseline;">
+            <div class="line1" style="background-color: rgb(26, 25, 25); height: 3px; width: 200px;"></div>
+            <div style="height: 10px; width: 10px; border-radius: 50%; background-color: crimson;"></div>
+            <h1 style="color: crimson;">*</h1>
+            <h1 style="color: crimson;">*</h1> 
+            <div style="height: 10px; width: 10px; border-radius: 50%; background-color: crimson;"></div>
+            <div class="line1"  style="background-color: rgb(26, 25, 25); height: 3px; width: 200px;"></div>
+        </div>
+
+        <div class="services1" style="display: flex; gap: 40px; justify-content: center; color: blue;">
+            <div id="commerciaal">
+                <H1><span style="color: crimson;">COMMERCIAL</span> DESIGN</H1>
+                <p style="font-size: large; color: black; text-align: justify;" >We Design and develop manufactured product such as:
+                    Children's toy, home appliances. Combine artistic talent 
+                    on product use, marketing and materials to create the most 
+                    functional and appealing product design.
+                    
+                    <h2 style="color: blue;"><i>Check out these Design Samples:</i></h2>
+                    <div class="images" style="display: flex; gap: 10px;  overflow: auto; position: relative; height: 300px; width: 300px;">
+                        <div class="img1">
+                         <img src="/images/images (12).jpeg" height="250px" width="250px" style="border-radius: 20px;border: 3px solid crimson; ">
+                        </div>
+
+                        <div class="img2">
+                         <img src="/images/images (13).jpeg" height="250px" width="250px" style="border-radius: 20px; border: 3px solid crimson;">
+                        </div>
+
+                        <div class="img3">
+                        <img src="/images/images (14).jpeg" height="250px" width="250px" style="border-radius: 20px; border: 3px solid crimson;">
+                        </div>
+
+                        <div class="img4">
+                            <img src="/images/images (15).jpeg" height="250px" width="250px" style="border-radius: 20px; border: 3px solid crimson;">
+                            </div>
+                    </div> 
+                </p>
+            </div>
+
+            <div id="office">
+                <H1><span style="color: crimson;">OFFICE</span> DESIGN</H1>
+                <p style="font-size: large; color: black;">
+                    We give your office the best look you could ever think of, 
+                    making it attractive to your clients as your sourroundings 
+                    is also part of the success of the business.we rennovate and 
+                    also decorate newly built offices.
+                    
+                    <h2 style="color: blue;"><i>Here are some of my office decorations:</i></h2>
+                    <div class="images" style="display: flex; gap: 10px;  overflow: auto; position: relative; height: 300px; width: 300px;">
+                        <div class="img1">
+                         <img id="img5" onclick="register()" src="/images/images (9).jpeg" height="250px" width="250px" style="border-radius: 20px; border: 3px solid crimson; ">
+                        </div>
+
+                        <div class="img2">
+                         <img id="img6" src="/images/images (10).jpeg" height="250px" width="250px" style="border-radius: 20px; border: 3px solid crimson;">
+                        </div>
+
+                        <div class="img3">
+                        <img id="img7" src="/images/images (11).jpeg" height="250px" width="250px" style="border-radius: 20px; border: 3px solid crimson;">
+                        </div>
+
+                        <div class="img4">
+                            <img id="img8" src="/images/images (16).jpeg" height="250px" width="250px" style="border-radius: 20px; border: 3px solid crimson;">
+                            </div>
+                    </div> 
+                   
+                </p> 
+            </div>
+
+            <div id="residential">
+                <H1><span style="color: crimson;">RESIDENTIAL</span> DESIGN</H1>
+                <p style="font-size: large; color: black;">
+                    We give the best home design you could ever think of. 
+                    We clean, rennovate,furnish,paint e.t.c and do any goodies  
+                    that'll make your house looks amazing.Remember,Your home 
+                    is our best friend.
+
+                    <h2 style="color: blue;"><i>Choose any home design,let's make magic:</i></h2>
+                    <div class="images" style="display: flex; gap: 10px;  overflow: auto; position: relative; height: 300px; width: 300px;">
+                        <div class="img1">
+                         <img src="/images/bed2.webp" height="250px" width="250px" style="border-radius: 20px;border: 3px solid crimson; ">
+                        </div>
+
+                        <div class="img2">
+                         <img src="/images/bed3.jpeg" height="250px" width="250px" style="border-radius: 20px; border: 3px solid crimson;">
+                        </div>
+
+                        <div class="img3">
+                        <img src="/images/bed1.jpeg" height="250px" width="250px" style="border-radius: 20px; border: 3px solid crimson;">
+                        </div>
+
+                        <div class="img4">
+                            <img src="/images/kit.jpeg" height="250px" width="250px" style="border-radius: 20px; border: 3px solid crimson;">
+                            </div>
+                    </div> 
+                </p>
+            </div>
+        </div>
+    </div>
+
+
+   <div class="project">
+        <h1 style="font-style: italic; text-align: center; color: black; -webkit-text-stroke-width: 1px;  -webkit-text-stroke-color: crimson;   ">Come let's talk business and be Part Of Our Project</h1>
+        <img class="imgProject" src="/images/project-need.png">
+
+        <form action="">
+            <h2><i>Book us for an Amazing design</i></h2>
+        </form>
+   </div>
+
+    <script>
+    function sidemenu(){
+         const sidenav = document.querySelector('.sidenav')
+         sidenav.style.display = 'block';
+    }
+    function nomenu(){
+         const sidenav = document.querySelector('.sidenav')
+         sidenav.style.display = 'none';
+    }
+
+    function showAbout(){
+        const interior = document.querySelector('.interior')
+        interior.style.display = 'none';
+
+        const about = document.querySelector('.about')
+        about.style.display = 'block';
+    }
+
+    function home(){
+        window.location.assign('design1.html')
+    }
+
+    function howServices(){
+        const service = document.createElement('div')
+        service.style.display = 'block';
+    }
+    </script>
+
+    <script src="./icons/icon.js"></script>
+</body>
+</html>
